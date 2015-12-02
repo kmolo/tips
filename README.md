@@ -2,7 +2,7 @@
 
 **tips** is a tip calculator application for iOS coded using Swift.
 
-Submitted by: **Katherine M.**
+Submitted by: **kmolo**
 
 Time spent: **X** hours spent in total
 
@@ -37,7 +37,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright 2015 Katherine Moloney
+    Copyright 2015 kmolo
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
