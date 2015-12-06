@@ -14,6 +14,7 @@
 		CD5378D31C0443C600028C19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD5378D11C0443C600028C19 /* LaunchScreen.storyboard */; };
 		CD5378DE1C0443C600028C19 /* tipsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5378DD1C0443C600028C19 /* tipsTests.swift */; };
 		CD5378E91C0443C600028C19 /* tipsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD5378E81C0443C600028C19 /* tipsUITests.swift */; };
+		CD59E3CF1C141B20002EF856 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD59E3CE1C141B20002EF856 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		CD5378E41C0443C600028C19 /* tipsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tipsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD5378E81C0443C600028C19 /* tipsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tipsUITests.swift; sourceTree = "<group>"; };
 		CD5378EA1C0443C600028C19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD59E3CE1C141B20002EF856 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				CD5378C81C0443C600028C19 /* AppDelegate.swift */,
 				CD5378CA1C0443C600028C19 /* ViewController.swift */,
 				CD5378CC1C0443C600028C19 /* Main.storyboard */,
+				CD59E3CE1C141B20002EF856 /* SettingsViewController.swift */,
 				CD5378CF1C0443C600028C19 /* Assets.xcassets */,
 				CD5378D11C0443C600028C19 /* LaunchScreen.storyboard */,
 				CD5378D41C0443C600028C19 /* Info.plist */,
@@ -258,6 +261,7 @@
 			files = (
 				CD5378CB1C0443C600028C19 /* ViewController.swift in Sources */,
 				CD5378C91C0443C600028C19 /* AppDelegate.swift in Sources */,
+				CD59E3CF1C141B20002EF856 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +486,7 @@
 				CD5378EF1C0443C600028C19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD5378F01C0443C600028C19 /* Build configuration list for PBXNativeTarget "tipsTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +495,7 @@
 				CD5378F21C0443C600028C19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD5378F31C0443C600028C19 /* Build configuration list for PBXNativeTarget "tipsUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +504,7 @@
 				CD5378F51C0443C600028C19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

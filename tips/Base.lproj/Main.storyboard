@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hpm-fZ-T98">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Tip Calculator-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="tips" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,6 +70,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BO0-rU-dLY">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Tip Calculator" id="jdp-7W-o6D">
+                                        <barButtonItem key="rightBarButtonItem" title="Settings" id="LxS-dJ-i5v"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -77,6 +85,13 @@
                             <outletCollection property="gestureRecognizers" destination="Rn9-eJ-kKm" appends="YES" id="u3v-AF-neJ"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" title="Tip Calculator" id="729-OA-c8r">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="qxf-BY-VFA">
+                            <connections>
+                                <segue destination="lEV-DT-Y1f" kind="push" id="ULK-8W-CIz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="billField" destination="NvC-wc-Hpt" id="AKC-GD-G8V"/>
                         <outlet property="tipControl" destination="roN-Kw-vbv" id="C9h-Zo-DjP"/>
@@ -91,7 +106,44 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="203" y="273"/>
+            <point key="canvasLocation" x="878" y="251"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="ue2-MI-CzQ">
+            <objects>
+                <viewController id="lEV-DT-Y1f" customClass="SettingsViewController" customModule="tips" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uHw-lQ-a4Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kq6-ct-8nx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bSZ-Ad-QsH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Nhg-ru-1MI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EgA-A9-Fhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1276" y="251"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rjs-y2-Dco">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hpm-fZ-T98" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Lf-hb-iWf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ssR-al-6Pf"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Px4-NG-0QI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="346" y="251"/>
         </scene>
     </scenes>
 </document>
