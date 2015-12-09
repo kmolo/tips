@@ -52,6 +52,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func onEditingChanged(sender: AnyObject) {
+        let currencyFormatter = NSNumberFormatter()
+        currencyFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
+        currencyFormatter.locale = NSLocale.currentLocale()
+        
         var tipPercentages = [0.18, 0.2, 0.22]
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         
@@ -59,21 +63,8 @@ class ViewController: UIViewController {
         let tip = billAmount * tipPercentage
         let total = billAmount + tip
         
-        //tipLabel.text = "$\(tip)"
-        //totalLabel.text = "$\(total)"
-        
-        //tipLabel.text = String(format: "$%.2f", tip)
-        //totalLabel.text = String(format: "$%.2f", total)
-        
-        let currencyFormatter = NSNumberFormatter()
-        currencyFormatter.numberStyle = NSNumberFormatterStyle.CurrencyStyle
-        currencyFormatter.locale = NSLocale.currentLocale()
-        
         tipLabel.text = currencyFormatter.stringFromNumber(tip)!
         totalLabel.text = currencyFormatter.stringFromNumber(total)!
-
-        //tipLabel.text = tip.asLocaleCurrency
-        //totalLabel.text = total.asLocaleCurrency
         
     }
     
@@ -82,15 +73,3 @@ class ViewController: UIViewController {
     }
     
 }
-
-/*
-extension Double {
-    var asLocaleCurrency:String {
-        let formatter = NSNumberFormatter()
-        formatter.numberStyle = .CurrencyStyle
-        formatter.locale = NSLocale.currentLocale()
-        return formatter.stringFromNumber(self)!
-    }
-}
-*/
-
