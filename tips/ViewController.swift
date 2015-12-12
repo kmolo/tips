@@ -20,6 +20,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
+
+        let now = NSDate()
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let then = defaults.objectForKey("savedTime") as? NSDate
+        
+        if (then != nil && now.timeIntervalSinceDate(then!) < 600){
+            billField.text = NSUserDefaults.standardUserDefaults().stringForKey("savedAmt")
+        }
         
     }
 
@@ -39,6 +48,10 @@ class ViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         print("view will disappear")
+        
+        NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "savedTime")
+        NSUserDefaults.standardUserDefaults().setObject(billField.text, forKey: "savedAmt")
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     override func viewDidDisappear(animated: Bool) {
