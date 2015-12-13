@@ -120,9 +120,32 @@
                     <view key="view" contentMode="scaleToFill" id="bSZ-Ad-QsH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="chY-w1-Cl4">
+                                <rect key="frame" x="113" y="239" width="94" height="29"/>
+                                <connections>
+                                    <action selector="onStepperChanged:" destination="lEV-DT-Y1f" eventType="valueChanged" id="KXD-Ug-hR1"/>
+                                </connections>
+                            </stepper>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="PPl-sl-dkO">
+                                <rect key="frame" x="20" y="175" width="280" height="29"/>
+                                <segments>
+                                    <segment title="18%"/>
+                                    <segment title="20%"/>
+                                    <segment title="22%"/>
+                                </segments>
+                                <connections>
+                                    <action selector="onSetTipControlChanged" destination="lEV-DT-Y1f" eventType="valueChanged" id="qEX-Zs-ZCS"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Nhg-ru-1MI"/>
+                    <connections>
+                        <outlet property="setTipControl" destination="PPl-sl-dkO" id="Tbx-RP-zgb"/>
+                        <outlet property="setTipStepper" destination="chY-w1-Cl4" id="piC-f4-T4H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EgA-A9-Fhb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
