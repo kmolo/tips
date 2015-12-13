@@ -22,11 +22,9 @@ class ViewController: UIViewController {
         totalLabel.text = "$0.00"
 
         let now = NSDate()
+        let before = NSUserDefaults.standardUserDefaults().objectForKey("savedTime") as? NSDate
         
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let then = defaults.objectForKey("savedTime") as? NSDate
-        
-        if (then != nil && now.timeIntervalSinceDate(then!) < 600){
+        if (before != nil && now.timeIntervalSinceDate(before!) < 600){
             billField.text = NSUserDefaults.standardUserDefaults().stringForKey("savedAmt")
         }
         
