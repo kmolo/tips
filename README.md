@@ -11,7 +11,7 @@ Time spent: **X** hours spent in total
 The following **required** functionality is complete:
 
 * [X] User can enter a bill amount, choose a tip percentage, and see the tip and total values.
-* [ ] Settings page to change the default tip percentage.
+* [X] Settings page to change the default tip percentage.
 
 The following **optional** features are implemented:
 * [ ] UI animations
@@ -30,7 +30,7 @@ Here's a walkthrough of implemented user stories:
 <!---
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 --->
-![Walkthrough](01-tips.gif)
+![Walkthrough](tips.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
