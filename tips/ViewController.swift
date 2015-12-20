@@ -69,31 +69,31 @@ class ViewController: UIViewController {
     }
     
     func refreshTipPercentages(){
-        var tipLow = NSUserDefaults.standardUserDefaults().stringForKey("tip_low")!
-        var tipMid = NSUserDefaults.standardUserDefaults().stringForKey("tip_mid")!
-        var tipHigh = NSUserDefaults.standardUserDefaults().stringForKey("tip_high")!
+        var tipLow = NSUserDefaults.standardUserDefaults().stringForKey("tip_low")
+        var tipMid = NSUserDefaults.standardUserDefaults().stringForKey("tip_mid")
+        var tipHigh = NSUserDefaults.standardUserDefaults().stringForKey("tip_high")
         
         print("TVC: tip percents without symbol before checking")
         print(tipLow)
         print(tipMid)
         print(tipHigh)
         
-        if (tipLow.isEmpty) { tipLow = "18.0" }
-        if (tipMid.isEmpty) { tipMid = "20.0" }
-        if (tipHigh.isEmpty) { tipHigh = "22.0" }
+        if (tipLow == nil ) { tipLow = "18.0" }
+        if (tipMid == nil ) { tipMid = "20.0" }
+        if (tipHigh == nil ) { tipHigh = "22.0" }
 
         print("TVC: tip percents without symbol after checking")
         print(tipLow)
         print(tipMid)
         print(tipHigh)
         
-        tipPercentages[0] = NSString(string: tipLow).doubleValue / 100.0
-        tipPercentages[1] = NSString(string: tipMid).doubleValue / 100.0
-        tipPercentages[2] = NSString(string: tipHigh).doubleValue / 100.0
+        tipPercentages[0] = NSString(string: tipLow!).doubleValue / 100.0
+        tipPercentages[1] = NSString(string: tipMid!).doubleValue / 100.0
+        tipPercentages[2] = NSString(string: tipHigh!).doubleValue / 100.0
         
-        tipLow += "%"
-        tipMid += "%"
-        tipHigh += "%"
+        tipLow! += "%"
+        tipMid! += "%"
+        tipHigh! += "%"
         
         print("TVC: tip percents with symbol")
         print(tipLow)
