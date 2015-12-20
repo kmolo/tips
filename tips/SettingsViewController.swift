@@ -9,8 +9,6 @@
 import UIKit
 
 class SettingsViewController: UIViewController {
-
-    
     @IBOutlet weak var setTipControl: UISegmentedControl!
     @IBOutlet weak var setTipStepper: UIStepper!
     
@@ -24,26 +22,17 @@ class SettingsViewController: UIViewController {
         super.viewWillAppear(animated)
         print("view will appear")
         
-        let currentTipPercentage = setTipControl.titleForSegmentAtIndex(setTipControl.selectedSegmentIndex)!
-        let endIndex = currentTipPercentage.endIndex.advancedBy(-1)
+        refreshTipPercentages()
+        setStepperValue()
         
-        setTipStepper.value = Double(currentTipPercentage.substringToIndex(endIndex))!
-        
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        print("view did appear")
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         print("view will disappear")
-    }
-    
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        print("view did disappear")
+        
+        saveValues()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -52,19 +41,82 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func onSetTipControlChanged() {
-        let currentTipPercentage = setTipControl.titleForSegmentAtIndex(setTipControl.selectedSegmentIndex)!
-        let endIndex = currentTipPercentage.endIndex.advancedBy(-1)
-        
-        setTipStepper.value = Double(currentTipPercentage.substringToIndex(endIndex))!
+        setStepperValue()
         
     }
+    
     @IBAction func onStepperChanged(sender: UIStepper) {
-        
         let newTipPercentage = String(Int(sender.value)) + "%"
         let currentIndex = setTipControl.selectedSegmentIndex
         
         setTipControl.setTitle(newTipPercentage, forSegmentAtIndex: currentIndex)
         
+    }
+    
+    func setStepperValue() {
+        let currentTipPercentage = setTipControl.titleForSegmentAtIndex(setTipControl.selectedSegmentIndex)!
+        let endIndex = currentTipPercentage.endIndex.advancedBy(-1)
+        
+        setTipStepper.value = Double(currentTipPercentage.substringToIndex(endIndex))!
+    }
+    
+    func saveValues() {
+        let tip_low_with_symbol = setTipControl.titleForSegmentAtIndex(0)!
+        let tip_mid_with_symbol = setTipControl.titleForSegmentAtIndex(1)!
+        let tip_high_with_symbol = setTipControl.titleForSegmentAtIndex(2)!
+        
+        print("SVC tip percentages with %")
+        print(tip_low_with_symbol)
+        print(tip_mid_with_symbol)
+        print(tip_high_with_symbol)
+        
+        let tip_low = tip_low_with_symbol.substringToIndex(tip_low_with_symbol.endIndex.advancedBy(-1))
+        let tip_mid = tip_mid_with_symbol.substringToIndex(tip_mid_with_symbol.endIndex.advancedBy(-1))
+        let tip_high = tip_high_with_symbol.substringToIndex(tip_high_with_symbol.endIndex.advancedBy(-1))
+        
+        print("SVC tip percentages without %")
+        print(tip_low)
+        print(tip_mid)
+        print(tip_high)
+        
+        NSUserDefaults.standardUserDefaults().setObject(String(tip_low), forKey: "tip_low")
+        NSUserDefaults.standardUserDefaults().setObject(String(tip_mid), forKey: "tip_mid")
+        NSUserDefaults.standardUserDefaults().setObject(String(tip_high), forKey: "tip_high")
+        
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    func refreshTipPercentages(){
+        var tipLow = NSUserDefaults.standardUserDefaults().stringForKey("tip_low")!
+        var tipMid = NSUserDefaults.standardUserDefaults().stringForKey("tip_mid")!
+        var tipHigh = NSUserDefaults.standardUserDefaults().stringForKey("tip_high")!
+        
+        print("TVC: tip percents without symbol before checking")
+        print(tipLow)
+        print(tipMid)
+        print(tipHigh)
+        
+        if (tipLow.isEmpty) { tipLow = "18.0" }
+        if (tipMid.isEmpty) { tipMid = "20.0" }
+        if (tipHigh.isEmpty) { tipHigh = "22.0" }
+        
+        print("TVC: tip percents without symbol after checking")
+        print(tipLow)
+        print(tipMid)
+        print(tipHigh)
+        
+        tipLow += "%"
+        tipMid += "%"
+        tipHigh += "%"
+        
+        print("TVC: tip percents with symbol")
+        print(tipLow)
+        print(tipMid)
+        print(tipHigh)
+        
+        setTipControl.setTitle(tipLow, forSegmentAtIndex: 0)
+        setTipControl.setTitle(tipMid, forSegmentAtIndex: 1)
+        setTipControl.setTitle(tipHigh, forSegmentAtIndex: 2)
         
     }
 
