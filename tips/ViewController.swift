@@ -24,10 +24,10 @@ class ViewController: UIViewController {
         totalLabel.text = "$0.00"
 
         let now = NSDate()
-        let before = NSUserDefaults.standardUserDefaults().objectForKey("savedTime") as? NSDate
+        let before = NSUserDefaults.standardUserDefaults().objectForKey("saved_time") as? NSDate
         
         if (before != nil && now.timeIntervalSinceDate(before!) < 600){
-            billField.text = NSUserDefaults.standardUserDefaults().stringForKey("savedAmt")
+            billField.text = NSUserDefaults.standardUserDefaults().stringForKey("saved_amt")
         }
         
     }
@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         billField.becomeFirstResponder()
         
         refreshTipPercentages()
+        selectSegment()
         calculate()
         
     }
@@ -47,8 +48,9 @@ class ViewController: UIViewController {
         super.viewWillDisappear(animated)
         print("view will disappear")
         
-        NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "savedTime")
-        NSUserDefaults.standardUserDefaults().setObject(billField.text, forKey: "savedAmt")
+        NSUserDefaults.standardUserDefaults().setObject(NSDate(), forKey: "saved_time")
+        NSUserDefaults.standardUserDefaults().setObject(billField.text, forKey: "saved_amt")
+        NSUserDefaults.standardUserDefaults().setObject(tipControl.selectedSegmentIndex, forKey: "selected_segment")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
@@ -118,6 +120,14 @@ class ViewController: UIViewController {
         tipLabel.text = currencyFormatter.stringFromNumber(tip)!
         totalLabel.text = currencyFormatter.stringFromNumber(total)!
         
+    }
+    
+    func selectSegment() {
+        var selectedSegment = NSUserDefaults.standardUserDefaults().stringForKey("selected_segment")
+        
+        if (selectedSegment == nil) { selectedSegment = "0" }
+        
+        tipControl.selectedSegmentIndex = Int(selectedSegment!)!
     }
     
 }

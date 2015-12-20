@@ -23,6 +23,7 @@ class SettingsViewController: UIViewController {
         print("view will appear")
         
         refreshTipPercentages()
+        selectSegment()
         setStepperValue()
         
     }
@@ -82,6 +83,7 @@ class SettingsViewController: UIViewController {
         NSUserDefaults.standardUserDefaults().setObject(String(tip_low), forKey: "tip_low")
         NSUserDefaults.standardUserDefaults().setObject(String(tip_mid), forKey: "tip_mid")
         NSUserDefaults.standardUserDefaults().setObject(String(tip_high), forKey: "tip_high")
+        NSUserDefaults.standardUserDefaults().setObject(setTipControl.selectedSegmentIndex, forKey: "selected_segment")
         
         NSUserDefaults.standardUserDefaults().synchronize()
     }
@@ -118,6 +120,14 @@ class SettingsViewController: UIViewController {
         setTipControl.setTitle(tipMid, forSegmentAtIndex: 1)
         setTipControl.setTitle(tipHigh, forSegmentAtIndex: 2)
         
+    }
+    
+    func selectSegment() {
+        var selectedSegment = NSUserDefaults.standardUserDefaults().stringForKey("selected_segment")
+        
+        if (selectedSegment == nil) { selectedSegment = "0" }
+        
+        setTipControl.selectedSegmentIndex = Int(selectedSegment!)!
     }
 
     /*
