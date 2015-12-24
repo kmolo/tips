@@ -4,7 +4,7 @@
 
 Submitted by: **kmolo**
 
-Time spent: **X** hours spent in total
+Time spent: **8** hours spent in total implement the app (50+ hours as student lead for CCSF)
 
 ## User Stories
 
